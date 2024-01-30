@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timezone</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
   </head>
   <body>
     <select name="cities" id="cities">
@@ -16,15 +17,25 @@
     <script>
       function alertTZ(event) {
         if (event.target.value === "paris") {
-          alert("paris❤️");
+          alert(parisTime);
         } else if (event.target.value === "tokyo") {
-          alert("tokyo💙");
+          alert(tokyoTime);
         } else if (event.target.value === "sydney") {
-          alert("sydney💛");
+          alert(sydneyTime);
         }
       }
       let citySelect = document.querySelector("#cities");
       citySelect.addEventListener("change", alertTZ);
+
+      let parisTime = moment()
+        .tz("Europe/Paris")
+        .format("[It is] dddd, MMMM DD, YYYY LT [in Paris, France]");
+      let tokyoTime = moment()
+        .tz("Asia/Tokyo")
+        .format("[It is] dddd, MMMM DD, YYYY LT [in Tokyo, Japan]");
+      let sydneyTime = moment()
+        .tz("Australia/Sydney")
+        .format("[It is] dddd, MMMM DD, YYYY LT [in Sydney, Australia]");
     </script>
   </body>
 </html>
