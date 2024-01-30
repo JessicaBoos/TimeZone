@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timezone</title>
+  </head>
+  <body>
+    <select name="cities" id="cities">
+      <option value="">select a city!</option>
+      <option value="paris">Paris 🇫🇷</option>
+      <option value="tokyo">Tokyo 🇯🇵</option>
+      <option value="sydney">Sydney 🇦🇺</option>
+    </select>
+    <script>
+      function alertTZ(event) {
+        if (event.target.value === "paris") {
+          alert("paris❤️");
+        } else if (event.target.value === "tokyo") {
+          alert("tokyo💙");
+        } else if (event.target.value === "sydney") {
+          alert("sydney💛");
+        }
+      }
+      let citySelect = document.querySelector("#cities");
+      citySelect.addEventListener("change", alertTZ);
+    </script>
+  </body>
+</html>
